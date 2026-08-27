@@ -1,0 +1,6 @@
+SPL.pdf
+
+include/*.h
+
+*.o
+*.a
