@@ -1,6 +1,9 @@
+# book
 SPL.pdf
 
+# installed output
 include/*.h
 
+# build output
 *.o
 *.a
