@@ -4,21 +4,12 @@ This is a learning repository for *SYSTEM PROGRAMMING IN LINUX* (SPL). Act prima
 
 # Using the Book Material
 
-- Treat `SPL.pdf` as the primary explanation of the concepts and the chapter
-  directories as the runnable companion examples.
-- Use the installed PyMuPDF package (`import pymupdf`) to read or search the
-  book. Do not add another PDF dependency for the same job.
-- PDF text extraction can scramble columns, diagrams, and code listings. When
-  layout affects the meaning, render the page with PyMuPDF and inspect it
-  visually instead of relying only on extracted text.
-- Distinguish PDF page indexes from the page numbers printed in the book. When
-  referring the learner back to the book, give the chapter or section and the
-  printed page number when available.
-- The book and repository may represent different revisions. Check the
-  relevant chapter `README`, source files, and `CHANGES` before claiming that a
-  printed example exactly matches the checked-out code.
-- Summarize and explain relevant passages in your own words. Quote only the
-  small portion needed to discuss a specific detail.
+- Treat `SPL.pdf` as the primary explanation of the concepts and the chapter directories as the runnable companion examples.
+- Use the installed PyMuPDF package (`import pymupdf`) to read or search the book. Do not add another PDF dependency for the same job.
+- PDF text extraction can scramble columns, diagrams, and code listings. When layout affects the meaning, render the page with PyMuPDF and inspect it visually instead of relying only on extracted text.
+- Distinguish PDF page indexes from the page numbers printed in the book. When referring the learner back to the book, give the chapter or section and the printed page number when available.
+- The book and repository may represent different revisions. Check the relevant chapter `README`, source files, and `CHANGES` before claiming that a printed example exactly matches the checked-out code.
+- Summarize and explain relevant passages in your own words. Quote only the small portion needed to discuss a specific detail.
 
 # Teaching Style
 
@@ -32,29 +23,13 @@ This is a learning repository for *SYSTEM PROGRAMMING IN LINUX* (SPL). Act prima
 
 # Working with the Code
 
-- Read the root `README.md` and the target chapter's `README` before changing
-  chapter code. Preserve the intended study order and note examples that are
-  deliberately incorrect or are not included in the book.
-- Trace the complete example and reuse helpers already provided by `common/`
-  and `include/` before adding code. Keep changes small and focused on the
-  concept being learned rather than introducing new abstractions.
-- Treat `common/` as the source of shared headers and library code. Files in
-  `include/` and `lib/` are installed build outputs; regenerate them with
-  `make -C common && make -C common install` instead of editing copies by hand.
-- Build with the repository Makefiles so that their feature-test macros,
-  include paths, libraries, and warning flags are preserved. Prefer
-  `make -C chapterNN TARGET` for a focused change; build the whole repository
-  only when the change is shared across chapters.
-- Run the smallest relevant example after building it and report the exact
-  command and observed behavior. For programs involving signals, FIFOs,
-  daemons, terminals, or syslog, check prerequisites and avoid leaving
-  background processes or temporary resources behind.
-- Preserve the existing C style and the educational comments unless changing
-  them is part of the lesson. Do not hide meaningful system calls behind
-  convenience wrappers merely to shorten an example.
-- Treat compiler warnings and unexpected system-call failures as problems to
-  investigate, not output to suppress.
-
+- Read the root `README.md` and the target chapter's `README` before changing chapter code. Preserve the intended study order and note examples that are deliberately incorrect or are not included in the book.
+- Trace the complete example and reuse helpers already provided by `common/` and `include/` before adding code. Keep changes small and focused on the concept being learned rather than introducing new abstractions.
+- Treat `common/` as the source of shared headers and library code. Files in `include/` and `lib/` are installed build outputs; regenerate them with `make -C common && make -C common install` instead of editing copies by hand.
+- Build with the repository Makefiles so that their feature-test macros, include paths, libraries, and warning flags are preserved. Prefer `make -C chapterNN TARGET` for a focused change; build the whole repository only when the change is shared across chapters.
+- Run the smallest relevant example after building it and report the exact command and observed behavior. For programs involving signals, FIFOs, daemons, terminals, or syslog, check prerequisites and avoid leaving background processes or temporary resources behind.
+- Preserve the existing C style and the educational comments unless changing them is part of the lesson. Do not hide meaningful system calls behind convenience wrappers merely to shorten an example.
+- Treat compiler warnings and unexpected system-call failures as problems to investigate, not output to suppress.
 
 # Git Conventions
 
