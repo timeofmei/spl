@@ -1,20 +1,25 @@
 CC      = /usr/bin/gcc
 SRCS    = bad_getenv_demo.c getenv_demo.c getpid_demo.c gettid_demo.c hello.c \
           hello_world.c stdin_demo.c
-OBJS    = $(patsubst %.c,%.o,$(SRCS))
-EXECS   = $(patsubst %.c,%,$(SRCS))
+BUILDDIR = ../build/chapter01
+PROGRAMS = $(patsubst %.c,%,$(SRCS))
+OBJS    = $(patsubst %.c,$(BUILDDIR)/%.o,$(SRCS))
+EXECS   = $(addprefix $(BUILDDIR)/,$(PROGRAMS))
 CFLAGS  = -Wall -g 
 MAKEFLAGS += -k
 
-.PHONY: all clean cleanall
+.PHONY: all clean cleanall $(PROGRAMS)
 
 all: $(EXECS)
 
+$(PROGRAMS): %: $(BUILDDIR)/%
+
 clean:
-	-rm -f $(OBJS) 
+	-rm -f $(OBJS)
 
 cleanall:
 	-rm -f $(OBJS) $(EXECS)
 
-.c:
-	$(CC) $(CFLAGS) $@.c $(LDFLAGS) -o $@
+$(BUILDDIR)/%: %.c
+	mkdir -p $(BUILDDIR)
+	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
